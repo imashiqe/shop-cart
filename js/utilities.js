@@ -41,9 +41,35 @@ function updateCaseNumber(isIncrease) {
 
     return newCaseNumber;
 }
-
+// cart 02 price total
 function updateCaseTotalPrice(newCaseNumber){
     const caseTotalPrice = newCaseNumber * 59;
     const caseTotalElement = document.getElementById('case-total');
     caseTotalElement.innerText = caseTotalPrice;
 }
+// cart 01 price total
+function updatePhoneTotalPrice(newPhoneNumber){
+    const phoneTotalPrice = newPhoneNumber * 1219;
+     const  phoneTotalElement = document.getElementById('phone-total')
+     phoneTotalElement.innerText = phoneTotalPrice; 
+}
+
+// get id sub total
+
+function getTextElementValueById(elementId){
+    const phoneTotalElement = document.getElementById(elementId);
+    const currentPhoneTotalString = phoneTotalElement.innerText;
+    const currentPhoneTotal = parseInt(currentPhoneTotalString) ;
+    return currentPhoneTotal;
+
+}
+
+function calculateSubTotal(){
+     // calculate total 
+     const  currentPhoneTotal = getTextElementValueById('phone-total');
+     const currentCaseTotal = getTextElementValueById('case-total');
+     const currentSubTotal = currentPhoneTotal + currentCaseTotal;
+      const subTotalElement = document.getElementById('sub-total');
+      subTotalElement.innerText = currentSubTotal ;
+}
+
